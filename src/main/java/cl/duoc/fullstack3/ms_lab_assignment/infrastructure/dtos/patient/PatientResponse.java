@@ -1,6 +1,6 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient;
 
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.PatientEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.PatientEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;

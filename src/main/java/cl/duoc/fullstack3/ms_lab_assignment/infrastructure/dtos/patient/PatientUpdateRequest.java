@@ -1,6 +1,6 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient;
 
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.PatientEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.PatientEntity;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
@@ -9,11 +9,7 @@ public record PatientUpdateRequest(
         @Min(1)
         @NotNull
         Long id,
-        @NotBlank
-        @Max(60)
         String fullName,
-        @NotBlank
-        @Size(min = 10, max = 15)
         String rut,
         LocalDate birthDate
 ) {

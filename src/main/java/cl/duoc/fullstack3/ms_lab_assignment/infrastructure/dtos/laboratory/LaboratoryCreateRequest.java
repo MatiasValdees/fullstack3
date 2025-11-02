@@ -1,6 +1,6 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.laboratory;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.laboratory;
 
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.LaboratoryEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.LaboratoryEntity;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 

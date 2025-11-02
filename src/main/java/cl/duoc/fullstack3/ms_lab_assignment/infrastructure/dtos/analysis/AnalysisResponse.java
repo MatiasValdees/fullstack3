@@ -1,6 +1,6 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.analysis;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.analysis;
 
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.AnalysisEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.AnalysisEntity;
 
 public record AnalysisResponse(
         Long id,

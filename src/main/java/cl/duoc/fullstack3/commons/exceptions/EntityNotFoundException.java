@@ -1,4 +1,4 @@
-package cl.duoc.fullstack3.ms_lab_assignment.domain.exceptions;
+package cl.duoc.fullstack3.commons.exceptions;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

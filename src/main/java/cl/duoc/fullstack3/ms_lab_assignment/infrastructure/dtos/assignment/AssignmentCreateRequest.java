@@ -1,4 +1,4 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.assignment;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.assignment;
 
 import jakarta.validation.constraints.Min;
 

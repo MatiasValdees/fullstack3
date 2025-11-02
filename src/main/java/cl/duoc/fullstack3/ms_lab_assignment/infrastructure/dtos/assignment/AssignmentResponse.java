@@ -1,8 +1,8 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.assignment;
+package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.assignment;
 
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.laboratory.LaboratoryResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient.PatientResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.AssignmentEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.laboratory.LaboratoryResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient.PatientResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.AssignmentEntity;
 
 public record AssignmentResponse(
         Long id,
