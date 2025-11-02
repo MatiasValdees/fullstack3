@@ -9,9 +9,8 @@ public record UserCreateRequest(
         @NotBlank
         String username,
         @NotBlank
-        @Size(min = 5)
+        @Size(min = 5, max = 15)
         String password,
-
         List<Long>rolesId
 ) {
 }

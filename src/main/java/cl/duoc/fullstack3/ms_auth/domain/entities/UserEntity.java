@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,6 +36,6 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
     )
-    private Set<RoleEntity> roles = new HashSet<>();
+    private List<RoleEntity> roles = new ArrayList<>();
 
 }

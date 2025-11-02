@@ -85,7 +85,7 @@ public class RoleService implements IRoleService{
         log.info("Eliminando rol por id: {}",id);
         if (!repository.existsById(id)){
             log.warn("No se puede eliminar rol, debido a que no existe");
-            return;
+            throw new EntityNotFoundException(String.format("No es posible eliminar rol id: %s",id));
         }
         repository.deleteById(id);
         log.warn("Rol eliminado");

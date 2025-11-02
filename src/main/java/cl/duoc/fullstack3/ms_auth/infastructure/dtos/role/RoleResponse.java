@@ -11,7 +11,7 @@ public record RoleResponse(
     public static RoleResponse fromEntity(RoleEntity entity){
         return new RoleResponse(
                 entity.getId(),
-                entity.getDescription(),
+                entity.getName(),
                 entity.getDescription()
         );
     }

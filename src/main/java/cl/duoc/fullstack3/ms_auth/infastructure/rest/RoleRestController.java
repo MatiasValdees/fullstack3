@@ -8,6 +8,7 @@ import cl.duoc.fullstack3.ms_auth.services.role.IRoleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,10 +47,10 @@ public class RoleRestController {
         return new WrapperResponse<>(response);
     }
 
-    @DeleteMapping
-    public WrapperResponse<Void>delete (@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete (@PathVariable Long id){
         log.info("[DELETE] Solicitud de eliminación de rol por id: {}",id);
         service.delete(id);
-        return new WrapperResponse<>();
+        return ResponseEntity.noContent().build();
     }
 }

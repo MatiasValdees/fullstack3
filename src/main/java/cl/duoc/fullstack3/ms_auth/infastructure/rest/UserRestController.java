@@ -8,6 +8,8 @@ import cl.duoc.fullstack3.ms_auth.services.user.IUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,10 +48,10 @@ public class UserRestController {
         return new WrapperResponse<>(response);
     }
 
-    @DeleteMapping
-    public WrapperResponse<Void>delete (@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete (@PathVariable Long id){
         log.info("[DELETE] Solicitud de eliminación de usuario por id: {}",id);
         service.delete(id);
-        return new WrapperResponse<>();
+        return ResponseEntity.noContent().build();
     }
 }

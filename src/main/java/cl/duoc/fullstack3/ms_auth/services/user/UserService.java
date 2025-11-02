@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -53,7 +52,7 @@ public class UserService implements IUserService{
         Optional<UserEntity> userByUsername = repository.findByUsername(request.username());
         if (userByUsername.isPresent()){
             log.info("Username no disponible");
-            throw new UsernameException("El username no está disponible disponible");
+            throw new UsernameException("El username no está disponible");
         }
         UserEntity toPersist = UserEntity.builder()
                 .username(request.username())
@@ -62,7 +61,7 @@ public class UserService implements IUserService{
                 .build();
 
         if (!request.rolesId().isEmpty()){
-            Set<RoleEntity> roles = (Set<RoleEntity>) roleRepository.findAllById(request.rolesId());
+            List<RoleEntity> roles = (List<RoleEntity>) roleRepository.findAllById(request.rolesId());
             toPersist.setRoles(roles);
         }
         UserEntity persisted = repository.save(toPersist);
@@ -80,12 +79,12 @@ public class UserService implements IUserService{
         if (!request.username().isBlank()){
             Optional<UserEntity> userByUsername = repository.findByUsername(request.username());
             if (userByUsername.isPresent() && !userByUsername.get().getId().equals(request.id())){
-                throw new UsernameException("El username no está disponible disponible");
+                throw new UsernameException("El username no está disponible");
             }
             toUpdate.setUsername(request.username());
         }
         if (!request.rolesId().isEmpty()){
-            Set<RoleEntity> roles = (Set<RoleEntity>) roleRepository.findAllById(request.rolesId());
+            List<RoleEntity> roles = (List<RoleEntity>) roleRepository.findAllById(request.rolesId());
             toUpdate.setRoles(roles);
         }
         toUpdate.setUpdatedAt(LocalDateTime.now());
@@ -99,8 +98,7 @@ public class UserService implements IUserService{
     public void delete(Long id) {
         log.info("Eliminando usuario con id: {}",id);
         if(!repository.existsById(id)){
-            log.warn("No es posible eliminar usuario, debido a que no existe");
-            return;
+           throw new EntityNotFoundException(String.format("Usuario con id: %s no existe",id));
         }
         repository.deleteById(id);
         log.info("Usuario eliminado");
