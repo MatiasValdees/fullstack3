@@ -1,9 +1,9 @@
 package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest;
 
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.laboratory.LaboratoryCreateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.laboratory.LaboratoryResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.laboratory.LaboratoryUpdateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.wrapper.WrapperResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.laboratory.LaboratoryCreateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.laboratory.LaboratoryResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.laboratory.LaboratoryUpdateRequest;
+import cl.duoc.fullstack3.commons.wrapper.WrapperResponse;
 import cl.duoc.fullstack3.ms_lab_assignment.service.laboratory.ILaboratoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/laboratories")
 @RequiredArgsConstructor
 @Slf4j
 public class LaboratoryRestController {

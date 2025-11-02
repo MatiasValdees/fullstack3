@@ -1,4 +1,4 @@
-package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.wrapper;
+package cl.duoc.fullstack3.commons.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

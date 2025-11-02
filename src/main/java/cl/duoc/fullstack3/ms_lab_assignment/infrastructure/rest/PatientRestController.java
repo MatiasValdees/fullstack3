@@ -1,9 +1,9 @@
 package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest;
 
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient.PatientCreateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient.PatientResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.patient.PatientUpdateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.wrapper.WrapperResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient.PatientCreateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient.PatientResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.patient.PatientUpdateRequest;
+import cl.duoc.fullstack3.commons.wrapper.WrapperResponse;
 import cl.duoc.fullstack3.ms_lab_assignment.service.patient.IPatientService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/patients")
 @RequiredArgsConstructor
 @Slf4j
 public class PatientRestController {

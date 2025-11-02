@@ -1,10 +1,10 @@
 package cl.duoc.fullstack3.ms_lab_assignment.service.analysis;
 
-import cl.duoc.fullstack3.ms_lab_assignment.domain.exceptions.EntityNotFoundException;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.analysis.AnalysisCreateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.analysis.AnalysisResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.analysis.AnalysisUpdateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.AnalysisEntity;
+import cl.duoc.fullstack3.commons.exceptions.EntityNotFoundException;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.analysis.AnalysisCreateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.analysis.AnalysisResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.analysis.AnalysisUpdateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.AnalysisEntity;
 import cl.duoc.fullstack3.ms_lab_assignment.domain.repositories.AnalysisRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

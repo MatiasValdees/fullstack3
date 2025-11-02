@@ -1,14 +1,14 @@
 package cl.duoc.fullstack3.ms_lab_assignment.service.assignment;
 
 import cl.duoc.fullstack3.ms_lab_assignment.domain.enums.StatusEnum;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.exceptions.EntityNotFoundException;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.assignment.AssignmentCreateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.assignment.AssignmentResponse;
-import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.rest.dtos.assignment.AssignmentUpdateRequest;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.AssignmentEntity;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.LaboratoryEntity;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.PatientEntity;
-import cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities.StatusEntity;
+import cl.duoc.fullstack3.commons.exceptions.EntityNotFoundException;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.assignment.AssignmentCreateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.assignment.AssignmentResponse;
+import cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.assignment.AssignmentUpdateRequest;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.AssignmentEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.LaboratoryEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.PatientEntity;
+import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.StatusEntity;
 import cl.duoc.fullstack3.ms_lab_assignment.domain.repositories.AssignmentRepository;
 import cl.duoc.fullstack3.ms_lab_assignment.domain.repositories.LaboratoryRepository;
 import cl.duoc.fullstack3.ms_lab_assignment.domain.repositories.PatientRepository;

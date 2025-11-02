@@ -1,11 +1,8 @@
-package cl.duoc.fullstack3.ms_lab_assignment.domain.models.entities;
+package cl.duoc.fullstack3.ms_lab_assignment.domain.entities;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "LABORATORIES")
@@ -13,6 +10,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class LaboratoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,7 @@ public class LaboratoryEntity {
     private Long id;
     @Column(name = "NAME", length = 60)
     private String name;
-    @Column(name = "NAME", length = 80)
+    @Column(name = "ADDRESS", length = 80)
     private String address;
 
 }
