@@ -11,6 +11,7 @@ import cl.duoc.fullstack3.ms_auth.infastructure.dtos.user.UserResponse;
 import cl.duoc.fullstack3.ms_auth.infastructure.dtos.user.UserUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,7 @@ import java.util.Optional;
 public class UserService implements IUserService{
     private final UserRepository repository;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoderBean;
 
     @Transactional(readOnly = true)
     @Override
@@ -49,15 +51,15 @@ public class UserService implements IUserService{
     public UserResponse create(UserCreateRequest request) {
         log.info("Creando usuario: {}",request);
 
-        Optional<UserEntity> userByUsername = repository.findByUsername(request.username());
+        Optional<UserEntity> userByUsername = repository.findByUsername(request.username().toUpperCase());
         if (userByUsername.isPresent()){
             log.info("Username no disponible");
             throw new UsernameException("El username no está disponible");
         }
         UserEntity toPersist = UserEntity.builder()
-                .username(request.username())
+                .username(request.username().toUpperCase())
                 .createdAt(LocalDateTime.now())
-                .password(request.password())
+                .password(passwordEncoderBean.encode(request.password()))
                 .build();
 
         if (!request.rolesId().isEmpty()){
@@ -74,14 +76,14 @@ public class UserService implements IUserService{
         UserEntity toUpdate = repository.findById(request.id())
                 .orElseThrow(()-> new EntityNotFoundException(String.format("Usuario con id: %s, no existe",request.id())));
         if (!request.password().isBlank()){
-            toUpdate.setPassword(request.password());
+            toUpdate.setPassword(passwordEncoderBean.encode(request.password()));
         }
         if (!request.username().isBlank()){
-            Optional<UserEntity> userByUsername = repository.findByUsername(request.username());
+            Optional<UserEntity> userByUsername = repository.findByUsername(request.username().toUpperCase());
             if (userByUsername.isPresent() && !userByUsername.get().getId().equals(request.id())){
                 throw new UsernameException("El username no está disponible");
             }
-            toUpdate.setUsername(request.username());
+            toUpdate.setUsername(request.username().toUpperCase());
         }
         if (!request.rolesId().isEmpty()){
             List<RoleEntity> roles = (List<RoleEntity>) roleRepository.findAllById(request.rolesId());

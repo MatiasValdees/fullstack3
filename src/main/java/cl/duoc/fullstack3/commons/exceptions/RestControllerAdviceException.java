@@ -51,7 +51,17 @@ public class RestControllerAdviceException {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IllegalArgumentException.class)
     public WrapperResponse<String> handleIllegalArgumentException(IllegalArgumentException ex) {
-        return new WrapperResponse<>(ex.getMessage());
+        var response = new WrapperResponse<>(ex.getMessage());
+        response.setStatus(statusError);
+        return response;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(InvalidCredentialException.class)
+    public WrapperResponse<String> handleInvalidCredentialException(InvalidCredentialException ex) {
+        var response = new WrapperResponse<>(ex.getMessage());
+        response.setStatus(statusError);
+        return response;
     }
 
 }
