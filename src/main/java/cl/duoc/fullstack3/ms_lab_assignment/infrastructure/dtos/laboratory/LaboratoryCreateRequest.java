@@ -8,6 +8,7 @@ public record LaboratoryCreateRequest(
         @NotNull
         @Size(min = 2, max = 60)
         String name,
+        @NotNull
         @Size(min = 5,max = 80)
         String address
 ) {

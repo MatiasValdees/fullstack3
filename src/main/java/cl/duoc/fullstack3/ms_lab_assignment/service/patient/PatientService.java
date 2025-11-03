@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -53,6 +54,11 @@ public class PatientService implements IPatientService{
     @Override
     public PatientResponse create(PatientCreateRequest request) {
         log.info("Creando paciente: {}",request);
+        log.info("Consultando existencia de rut: {}",request.rut());
+        Optional<PatientEntity> rutExist = repository.findByRut(request.rut());
+        if (rutExist.isPresent()){
+            throw new RuntimeException("Rut ya existe");
+        }
         PatientEntity patientToPersist = request.toEntity();
         PatientEntity patientPersisted = repository.save(patientToPersist);
         log.info("Paciente creado id: {}",patientPersisted.getId());

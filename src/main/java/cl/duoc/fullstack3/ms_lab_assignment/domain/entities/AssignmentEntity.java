@@ -22,6 +22,9 @@ public class AssignmentEntity {
     @JoinColumn(name = "LABORATORY_ID")
     private LaboratoryEntity laboratory;
     @ManyToOne
+    @JoinColumn(name = "ANALYSIS_ID")
+    private AnalysisEntity analysis;
+    @ManyToOne
     @JoinColumn(name = "STATUS_ID")
     private StatusEntity status;
 }

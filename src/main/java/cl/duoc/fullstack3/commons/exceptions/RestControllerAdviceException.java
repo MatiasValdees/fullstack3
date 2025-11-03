@@ -48,4 +48,10 @@ public class RestControllerAdviceException {
         return response;
     }
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException.class)
+    public WrapperResponse<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return new WrapperResponse<>(ex.getMessage());
+    }
+
 }

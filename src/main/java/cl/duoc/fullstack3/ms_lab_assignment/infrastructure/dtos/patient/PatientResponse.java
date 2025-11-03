@@ -9,7 +9,7 @@ public record PatientResponse(
         Long id,
         String fullName,
         String rut,
-        @JsonFormat(pattern = "dd/mm/yyyy")
+        @JsonFormat(pattern = "dd-MM-yyyy")
         LocalDate birthDate
 ) {
 
