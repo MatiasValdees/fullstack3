@@ -30,6 +30,7 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests((authz)-> authz
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/users").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session-> session

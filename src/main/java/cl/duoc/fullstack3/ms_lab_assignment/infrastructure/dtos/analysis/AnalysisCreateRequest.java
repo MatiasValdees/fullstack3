@@ -1,10 +1,12 @@
 package cl.duoc.fullstack3.ms_lab_assignment.infrastructure.dtos.analysis;
 
 import cl.duoc.fullstack3.ms_lab_assignment.domain.entities.AnalysisEntity;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record AnalysisCreateRequest(
         @Size(max = 60)
+        @NotBlank
         String name,
         @Size(max = 200)
         String description
